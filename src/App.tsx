@@ -27,7 +27,7 @@ interface Stats {
 
 // NTP over HTTP API (ローカルExpressサーバー経由)
 async function fetchNtpTime(host: string): Promise<{ time: Date; meta: Record<string, unknown> }> {
-  const res = await fetch(`http://localhost:3001/api/ntp?host=${encodeURIComponent(host)}`)
+  const res = await fetch(`http://ogaserve.pgw.jp:3001/api/ntp?host=${encodeURIComponent(host)}`)
   if (!res.ok) throw new Error('API error')
   const data = await res.json()
   return { time: new Date(data.time), meta: { host } }

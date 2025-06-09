@@ -9,7 +9,6 @@
   { "name": "Windows", "host": "time.windows.com" },
   { "name": "Apple", "host": "time.apple.com" },
   { "name": "CloudFlare", "host": "time.cloudflare.com" },
-  { "name": "OCN", "host": "ntp-tk02.ocn.ad.jp" },
   { "name": "USEN", "host": "ntp02.usen.ad.jp" },
   { "name": "sakura", "host": "ntp1.sakura.ad.jp" },
   { "name": "AWS", "host": "time.aws.com" }
