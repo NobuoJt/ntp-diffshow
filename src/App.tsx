@@ -141,18 +141,32 @@ function App() {
 
   // CSV出力
   useEffect(() => {
-    const header = ['name', 'host', 'ntp_time', 'local_time', 'diff_ms', 'sigma', 'filtered_sigma']
+    const header = ['name', 'host', 'ntp_time', 'diff_ms', 'dev.', 'sigma', 'filtered_dev.', 'filtered_sigma', 'error']
+
     const rows = results.map(r => [
       r.name,
       r.host,
       r.time ? r.time.toISOString() : '',
       r.diffMs ?? '',
-      stats.sigma ? ((r.diffMs ?? 0 - stats.avg) / stats.sigma).toFixed(2) : '',
-      stats.filteredSigma ? ((r.diffMs ?? 0 - stats.filteredAvg) / stats.filteredSigma).toFixed(2) : '',
+      (r.diffMs ?? 0) - stats.avg,
+      stats.sigma ? (((r.diffMs ?? 0) - stats.avg) / stats.sigma) : 0,
+      (r.diffMs ?? 0) - stats.filteredAvg,
+      stats.filteredSigma ? (((r.diffMs ?? 0) - stats.filteredAvg) / stats.filteredSigma) : 0,
+      r.error ?? '',
     ])
     setCsv([header, ...rows].map(row => row.join(',')).join('\n'))
   }, [results, stats])
-
+/*
+                  <td>{(r.diffMs) ?? '-'}</td>
+                  <td style={{ color: toColorPogNeg((r.diffMs ?? 0) - stats.avg) }}>
+                    {r.diffMs !== null ? withSign(r.diffMs - stats.avg, 1) : '-'}
+                  </td>
+                  <td style={{ color: toColorSigma(Math.abs(sigmaVal)) }}>{withSign(sigmaVal, 2)}</td>
+                  <td style={{ color: toColorPogNeg((r.diffMs ?? 0) - stats.filteredAvg) }}>
+                    {r.diffMs !== null ? withSign(r.diffMs - stats.filteredAvg, 1) : '-'}
+                  </td>
+                  <td style={{ color: toColorSigma(Math.abs(filteredSigmaVal)) }}>{withSign(filteredSigmaVal, 2)}</td>
+*/
   // グラフ用データ
   const graphData = results.map(r => ({
     name: r.name,
