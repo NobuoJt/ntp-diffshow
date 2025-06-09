@@ -88,7 +88,7 @@ function App() {
 
   // サーバーリスト取得
   useEffect(() => {
-    fetch('/ntp_servers.json')
+    fetch('ntp_servers.json')
       .then(res => res.json())
       .then(setServers)
   }, [])
