@@ -18,6 +18,6 @@ app.get('/api/ntp', async (req, res) => {
 });
 
 const port = 3001;
-app.listen(port, () => {
+app.listen(port,"0.0.0.0", () => {
   console.log(`NTP API server running at http://localhost:${port}`);
 });
