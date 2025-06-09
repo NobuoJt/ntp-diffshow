@@ -1,0 +1,16 @@
+[
+  { "name": "NICT", "host": "ntp.nict.jp" },
+  { "name": "MFeed0", "host": "ntp.jst.mfeed.ad.jp" },
+  { "name": "MFeed1", "host": "ntp1.jst.mfeed.ad.jp" },
+  { "name": "MFeed2", "host": "ntp2.jst.mfeed.ad.jp" },
+  { "name": "MFeed3", "host": "ntp3.jst.mfeed.ad.jp" },
+  { "name": "Google", "host": "time.google.com" },
+  { "name": "Pool", "host": "pool.ntp.org" },
+  { "name": "Windows", "host": "time.windows.com" },
+  { "name": "Apple", "host": "time.apple.com" },
+  { "name": "CloudFlare", "host": "time.cloudflare.com" },
+  { "name": "OCN", "host": "ntp-tk02.ocn.ad.jp" },
+  { "name": "USEN", "host": "ntp02.usen.ad.jp" },
+  { "name": "sakura", "host": "ntp1.sakura.ad.jp" },
+  { "name": "AWS", "host": "time.aws.com" }
+]
