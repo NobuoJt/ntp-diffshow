@@ -26,11 +26,14 @@ API部分```server.js```はDockerでまとめてogaserveへ。
 - GitHubのソースをコンテナ化。
 - `systemctl start nobuo_ntp_api.service`で起動。  
   - `~/nobuo/etc/`にスクリプト配置。  
-  - `docker run --rm -p 3001:3001 nobuojt/ntp-api-server`でAPIサーバー展開・起動。
+  - `docker run --rm --init -p 3001:3001 -v /home/mario/nobuo/api/ntp/localhost-cert.pem:/app/localhost-cert.pem -v /home/mario/nobuo/api/ntp/localhost-key.pem:/app/localhost-key.pem \ nobuojt/ntp-api-server`  
+  でAPIサーバー展開・起動。
 
 - ```ogaserve.pgw.jp:3001/api/ntp?host=ntp.nict.jp```でjsonとして取得可能。  
 
 - `/home/mario/nobuo/api/ntp/*`にHTTPS用pemファイルがあるので、Docker内にマウント。
+
+`compose.yml`で指定するものは、イメージのrun時にはコマンドで入力する必要がある。
 
 ## 開発・起動方法
 
