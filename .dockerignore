@@ -1,0 +1,7 @@
+/node_modules
+/dist
+/src
+vite.config.ts
+localhost-cert.pem
+localhost-key.pem
+*.pem
