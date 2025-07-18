@@ -2,10 +2,11 @@ version: '3.8'
 services:
   ntp-diffshow:
     build: .
+    volumes:
+      - /home/mario/nobuo/api/ntp/localhost-cert.pem:/app/localhost-cert.pem
+      - /home/mario/nobuo/api/ntp/localhost-key.pem:/app/localhost-key.pem
     ports:
       - "3001:3001"
-    volumes:
-      - .:/app
     environment:
       - NODE_ENV=development
     command: ["node", "server.js"]

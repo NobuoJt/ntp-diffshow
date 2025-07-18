@@ -16,19 +16,21 @@
 ### クライアント部分:vite→Apache
 
 ソースはGitHub。  
-vite+reactで、ビルドしたファイル群を、  ```www/html/ntp/*``` に配置。  
-  ```ogaserve.pgw.jp/ntp```でブラウザからアクセス可能。   
+- vite+reactでビルドしたファイル群を、```www/html/ntp/*``` に配置。  
+- ```ogaserve.pgw.jp/ntp```でブラウザからアクセス可能。   
 
 ### API部分:Docker
 
 API部分```server.js```はDockerでまとめてogaserveへ。  
 
-- GitHubのソースをもってきてコンテナ化。
+- GitHubのソースをコンテナ化。
 - `systemctl start nobuo_ntp_api.service`で起動。  
   - `~/nobuo/etc/`にスクリプト配置。  
   - `docker run --rm -p 3001:3001 nobuojt/ntp-api-server`でAPIサーバー展開・起動。
 
 - ```ogaserve.pgw.jp:3001/api/ntp?host=ntp.nict.jp```でjsonとして取得可能。  
+
+- `/home/mario/nobuo/api/ntp/*`にHTTPS用pemファイルがあるので、Docker内にマウント。
 
 ## 開発・起動方法
 
