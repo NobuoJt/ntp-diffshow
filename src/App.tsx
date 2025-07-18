@@ -27,7 +27,7 @@ interface Stats {
 
 // NTP over HTTP API (ローカルExpressサーバー経由)
 async function fetchNtpTime(host: string): Promise<{ time: Date; meta: Record<string, unknown> }> {
-  const res = await fetch(`http://ogaserve.pgw.jp:3001/api/ntp?host=${encodeURIComponent(host)}`)
+  const res = await fetch(`https://ogaserve.pgw.jp:3001/api/ntp?host=${encodeURIComponent(host)}`)
   if (!res.ok) throw new Error('API error')
   const data = await res.json()
   return { time: new Date(data.time), meta: { host } }
@@ -222,7 +222,6 @@ function App() {
             .sort((a, b) => (a.diffMs ?? 0) - (b.diffMs ?? 0))
             .map((r) => {
               const sigmaVal = stats.sigma ? (((r.diffMs ?? 0) - stats.avg) / stats.sigma) : 0
-              console.log(`diffms (${r.diffMs}) -stats.avg (${stats.avg}) / stats.sigma (${stats.sigma}) = ${sigmaVal}`)
 
               const filteredSigmaVal = stats.filteredSigma ? (((r.diffMs ?? 0) - stats.filteredAvg) / stats.filteredSigma) : 0
               return (
