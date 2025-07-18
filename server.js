@@ -21,8 +21,8 @@ app.get('/api/ntp', async (req, res) => {
 
 const port = 3001;
 const sslOptions = {
-  key: fs.readFileSync('./localhost-key.pem'),
-  cert: fs.readFileSync('./localhost-cert.pem'),
+  key: fs.readFileSync('/app/localhost-key.pem'),
+  cert: fs.readFileSync('/app/localhost-cert.pem'),
 };
 
 https.createServer(sslOptions, app).listen(port, '0.0.0.0', () => {
