@@ -16,12 +16,12 @@
 ### クライアント部分
 
 vite+reactで、ビルドしたものを、  
-```www/ntp/*``` > ```ogaserve.pgw.jp/ntp```に配置。  
+```www/html/ntp/*``` > ```ogaserve.pgw.jp/ntp```に配置。  
 
 ### API部分
 
 API部分```server.js```はdockerでまとめてogaserveへ。  
-`~nobuo/etc/`にスクリプト配置。`systemctl`で駆動。  
+`~/nobuo/etc/`にスクリプト配置。`systemctl start nobuo_ntp_api.service`で駆動。  
 ```ogaserve.pgw.jp:3001/api/ntp?host=ntp.nict.jp```でjsonとして取得可能。  
 
 ## 開発・起動方法
