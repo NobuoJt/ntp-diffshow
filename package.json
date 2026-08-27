@@ -1,7 +1,7 @@
 {
   "name": "ntp-diffshow",
   "private": true,
-  "version": "0.1.0",
+  "version": "0.1.1",
   "type": "module",
   "scripts": {
     "dev": "vite",
@@ -28,5 +28,8 @@
     "typescript": "~5.8.3",
     "typescript-eslint": "^8.56.1",
     "vite": "^6.4.2"
+  },
+  "allowScripts": {
+    "esbuild@0.25.5": true
   }
 }
