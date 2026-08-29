@@ -16,8 +16,9 @@
 ### クライアント部分:vite→Apache
 
 ソースはGitHub。  
+
 - vite+reactでビルドしたファイル群を、```www/html/ntp/*``` に配置。  
-- ```ogaserve.pgw.jp/ntp```でブラウザからアクセス可能。   
+- ```ogaserve.pgw.jp/ntp```でブラウザからアクセス可能。  
 
 ### API部分:Docker
 
